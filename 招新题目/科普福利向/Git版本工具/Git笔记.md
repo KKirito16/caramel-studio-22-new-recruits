@@ -62,7 +62,7 @@ git config --global user.email "###"   (###为邮箱号)
 
 Git本地有三个工作区域：工作目录（Working Directory）、暂存区（Stage/Index）、资源库（Repository或Git Directory）。如果在加上远程的git仓库（Remote Directory）就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：
 
-![QQ图片20220907173032](C:\Users\86158\Desktop\QQ图片20220907173032.png)
+![QQ图片20220907173032](image/QQ图片20220907173032.png)
 
 Workspace：工作区，就是你平时存放项目代码的地方
 
