@@ -11,39 +11,75 @@
     }
 </style>
 <body>
+<img src="背景图.png" id="背景">
 <h1 id="主页标题">是阿瑾呐的主页</h1>
-<img src="qq头像.jpg" id="照片" width="100">
-<h2 id="自我介绍标题">自我介绍</h2>
+<img src="qq头像.jpg" id="照片" width="150" height="150" style="width: 150px;height: 150px;border-radius: 100%">
+<h1 id="自我介绍标题">自我介绍</h1>
 <h3 id="自我介绍">
-    <p>　　大家好呀！我叫刘俊琦，信软21级学生，入党积极分子。我是一位热爱生活、幽默风趣、外向向上der成都本地男娃儿。说起兴趣爱好哇各个方面都有涉猎，其中格外热衷于羽毛球、旅游、听音乐(日系纯音乐＋黄老板铁粉)、玩游戏(农药技术选手＋铲+原批养老选手)、看电影。</p>
-    <p>　　大一我在学生社团联合会外联部工作一年，现任2022090913班导生、学生社团联合会外联部副部长，信软学生科助理，未央支教队副队长及2022未央爱心教育团队副队长暨达州分队队长，21级17班学习委员。大一参加过校级成电杯羽毛球比赛、新生辩论赛、电竞之星、北极星助残康复等多项活动。 获得过“社联之星”、中国大学生计算机设计大赛国赛三等奖、省赛二等奖。</p>
+    <p>　　大家好呀！我叫刘俊琦，信软21级学生，入党积极分子。我是一位热爱生活、幽默风趣、外向向上der成都本地男娃儿。说起兴趣爱好哇各个方面都有涉猎，其中格外热衷于羽毛球、旅游、听音乐(日系纯音乐＋黄老板铁粉)、玩游戏(农药技术选手＋铲+原批养老选手)、看电影。大一我在学生社团联合会外联部工作一年，现任2022090913班导生、学生社团联合会外联部副部长，信软学生科助理，未央支教队副队长及2022未央爱心教育团队副队长暨达州分队队长，21级17班学习委员。大一参加过校级成电杯羽毛球比赛、新生辩论赛、电竞之星、北极星助残康复等多项活动。 获得过“社联之星”、中国大学生计算机设计大赛国赛三等奖、省赛二等奖。</p>
 </h3>
-<h2 id="我的学习记录标题">我的学习记录</h2>
-<h3 id="我的学习记录">balabalabala</h3>
+<h1 id="我的学习记录标题">我的学习记录</h1>
+<h3 id="我的学习记录">前端三件套：h5（2d）->css（2w）->js（1w+）<br>
+    遇到的困难：<br>
+    1.对于长度单位的把控不到位，需要反复调整。<br>
+    2.由语句读取先后顺序引发的错误。<br>
+    3.对css中position项中fixed、absolutely、relative的概念理解不够透彻，经常不知道选哪一种。<br>
+    4.容易执着于用一到两种选择器，无法把各选择器的优势体现到位。<br>
+    5.对于布局的使用不熟悉<br></h3>
+<a href="初试仿京东栏目.html" id="超链接">学习过程代码</a>
 </body>
 <css>
     <style>
+        #背景
+        {
+            position: fixed;
+            opacity: 50%;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+        #超链接
+        {
+            text-align: left;
+            float: top;
+        }
         #主页标题{
             text-align: center;
+            position: relative;
             font-family: "Aa放课后下午茶 (非商业使用)";
+            top: 1vh;
+            float: bottom;
         }
         #照片{
-            position: absolute;
-            top: 20vh;
+            position: relative;
+            top: 2vh;
+            left: 80vh;
         }
-        #主页标题{
-            top:39vh;
+        #自我介绍标题{
+            text-align: center;
+            position: relative;
+            top: 3vh;
+            font-family: "Aa放课后下午茶 (非商业使用)";
         }
         #自我介绍{
-            top: 50vh;
+            text-align: center;
+            position: relative;
+            top: 4vh;
+            font-family: 仿宋;
         }
         #我的学习记录标题
         {
-            top:45vh;
+            text-align: center;
+            position: relative;
+            top:5vh;
+            font-family: "Aa放课后下午茶 (非商业使用)";
         }
         #我的学习记录
         {
-            top:50vh
+            text-align: center;
+            position: relative;
+            top:6vh;
+            font-family: 仿宋;
         }
     </style>
 </css>
