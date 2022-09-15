@@ -186,6 +186,7 @@ str.length
 
 6.字符串具有不可变性
 
+
 <img src="img/1.png" style="zoom:33%;" />
 
 这里试图用student[0]=1改变student字符串，且赋值成功，但再次打印student字符串时仍显示保持不变
@@ -271,7 +272,7 @@ arr.sort();
 //输出(3)["A","B","C"];
 ```
 
-相反的使用元素反转指令xxx.reverse()可以输出得到["C","B","A"]的结果
+相反的，使用元素反转指令xxx.reverse()可以输出得到["C","B","A"]的结果
 
 7.拼接 concat()
 
