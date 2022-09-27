@@ -304,3 +304,304 @@ arr[1][1]
 4
 ```
 
+## 7.对象
+
+```javascript
+var 对象名 ={
+    属性名：属性值,
+    属性名：属性值,
+    属性名：属性值
+}
+//eg.
+var person ={
+    name:"xioaming",
+    age:3,
+    email:"xxx@qq.com",
+    score:0,
+}
+```
+
+Js中对象，{......}表示一个对象，键值对描述属性xxxx:xxxx，多个属性之间用逗号隔开，最后一个属性不加逗号！
+
+JavaScript中的所有的键都是字符串，值是任意对象！	
+
+1.对象赋值
+
+```javascript
+person.name = "xiaoming"
+"xiaoming"
+person.name
+"xiaoming"
+```
+
+2.使用一个不存在的对象属性，不会报错！undefined
+
+```javascript
+person.haha
+undefined
+```
+
+3.动态的删减属性，通过delete删除对象的属性
+
+```javascript
+delete person.name
+true
+person
+```
+
+4.动态的添加，直接给新的属性添加值即可
+
+```javascript
+person.haha="haha"
+"haha"
+person
+```
+
+5.判断属性值是否在这个对象中！xxx in xxx
+
+```javascript
+'age' in person
+true
+//继承
+'toString' in person
+true
+```
+
+6.判断一个属性是否是这个对象自身拥有的hasOwnProperty()
+
+```javascript
+person.hasOwnProperty('toString')
+false
+person.hasOwnProperty('age')
+true
+```
+
+## 8.流程控制
+
+if 判断
+
+```javascript
+var age = 3;
+if (age>3){
+    alert("haha");
+}else if(age=3){
+    alert("ku~")
+}
+else{
+    alert("kuwa~");
+}
+```
+
+while循环，避免程序死循环
+
+```javascript
+while(age<100){
+    age=age+1;
+    console.log(age)
+}
+do{
+    age=age+1;
+    consloe.log(age)
+}while(age<100)
+```
+
+for循环
+
+```javascript
+for(let i =0;i<100;i++){
+    consloe.log(i)
+}
+```
+
+forEach循环
+
+```javascript
+var age =[12,3,12,3,12,31,23,123];
+//函数
+age.forEach(function(value){
+    consloe.log(value)
+    //逐个遍历age里面的元素
+})
+```
+
+for...in
+
+```javascript
+//for(var index in object){}
+for(var num in age){
+    if(age.hasOwnProperty(num)){
+        consloe.log("存在")
+        consloe.log(age[num])
+    }
+}
+
+```
+
+## 9.Map和Set
+
+Map:
+
+```javascript
+//ES6 Map
+//学生的成绩，学生的名字
+//var names=["tom","jack","haha"];
+//var scores=[100,90,80];
+
+var map = new Map([['tom',100],['jack',90],['haha',90]]);
+var name = map.get('tom');//通过key获得value
+map.set('admin',123456); //新增或修改
+map.delete("tom");//删除
+
+```
+
+Set:无序不重复的集合
+
+```javascript
+set.add(2);//添加
+set.delete(1); //删除
+consloe.log(set.has(3));//是否包含某个元素！
+```
+
+## 10.iterator
+
+遍历数组
+
+```javascript
+//通过for of/ for in 下标
+var arr=[3,4,5]
+for(var x of arr){
+    consloe.log(x)
+}
+```
+
+遍历map
+
+```javascript
+var map = new Map([["tom",100],["jack",90],["haha",80]]);
+for(let x of map){
+    consloe,log(x)
+}
+```
+
+遍历set
+
+```javascript
+var set =new Set([5,6,7]);
+for(let x of set){
+    consloe.log(x)
+}
+```
+
+## 11.函数
+
+### 1.定义函数
+
+
+
+> 定义方式一
+
+​		绝对值函数
+
+```javascript
+function abs(x){
+    if(x>=0){
+        retrun x;
+    }else{
+        return -x;
+    }
+}
+```
+
+一旦执行到return代表函数结束，返回结果！
+
+如果没有执行return,函数执行完也会返回结果，结果就是undefined
+
+> 定义方式二
+
+```javascript
+var abs =function(x){
+    if(x>=0){
+        retrun x;
+    }else{
+        return -x;
+    }
+}
+```
+
+function(x){....}这是一个匿名函数。但是可以把结果赋值给abs,通过abs就可以调用函数！	
+
+> 调用函数
+
+```javascript
+abs(10) //10
+abs(-10) //10
+```
+
+参数问题：javaScript可以传任意个参数，也可以不传递参数
+
+```javascript
+var abs =function(X){
+    //手动抛出异常来判断
+    if(typeof x!=='number'){
+        throw 'Not a Number';
+    }
+    if(x>=0){
+        return x;
+    }else{
+        return -x;
+    }
+}
+```
+
+> arguments
+
+`agruments`是一个JS的关键字
+
+代表传递进来的所有的参数，是一个数组。
+
+```javascript
+var abs =function(X){
+    consloe.log("x=>"+x);
+    for(var i =0;i<arguments.length;i++){
+        consloe.log(arguments[i]);
+    }
+    if(arguments.length==2){
+        else if(arguments.length==3){
+            
+        }
+    }
+    if(x>=0){
+        return x;
+    }else{
+        return -x;
+    }
+}
+```
+
+问题：arguments包含所有的参数，但我们有些时候想用多余的参数进行附加操作。需要排除已有参数。
+
+> rest
+
+以前：
+
+```javascript
+if （arguments.length>2){
+    for(var i=2,i<arguments.length;i++){
+        //......
+    }
+}
+```
+
+
+
+ES6引入的新特性，获取除了已经定义的参数外的所有参数
+
+```javascript
+function aaa(a,b,...reset){
+    console.log("a=>"+a);
+    console.log("b=>"+b);
+    console.log(rest);
+}
+```
+
+rest参数只能写在最后面，必须用...标识
