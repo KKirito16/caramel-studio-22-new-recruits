@@ -585,7 +585,7 @@ var abs =function(X){
 以前：
 
 ```javascript
-if （arguments.length>2){
+if (arguments.length>2){
     for(var i=2,i<arguments.length;i++){
         //......
     }
@@ -605,3 +605,213 @@ function aaa(a,b,...reset){
 ```
 
 rest参数只能写在最后面，必须用...标识
+
+### 2.变量的作用域
+
+在JavaScript中，var定义的实际是有作用域的。
+
+假设在函数体中申明，则在函数体外不可以使用~（可以用闭包实现）
+
+```javascript
+function qj(){
+    var x = 1;
+    x = x + 1;
+}
+
+x=x+2;//Uncaught ReferenceError:x is not defined
+```
+
+如果两个函数使用了相同的变量名，只要在函数内部，就不冲突
+
+```javascript
+function qj(){
+    var x = 1;
+    x = x + 1;
+}
+function qj2(){
+    var x = 1;
+    x = x + 1;
+}
+//是不冲突的
+```
+
+内部的函数可以访问外部函数的成员，反之则不行
+
+```javascript
+function qj{
+    var x = 1;
+    function qj2{
+        var y = x + 1;
+    }
+    var z=y+1;//Uncaught ReferenceError:y is not defined
+}
+```
+
+> 提升变量的作用域
+
+```javascript
+function qj2(){
+    //var x,y,z......
+    var x="x"+y;
+    consloe.log(x);
+    var y ='y';
+}    
+```
+
+这个是在JavaScript建立之初就存在的特性。
+
+所有的变量定义都放在函数的头部，便于代码维护。	
+
+默认所有的全局变量，都会自动绑定在windows对象目录下
+
+全局变量window
+
+```javascript
+var x ='xxx';
+alter(x);
+alter(window.x);//默认
+```
+
+JavaScript实际上只有一个全局作用域，任何变量（函数也可以视作变量），假设没有在函数作用范围内找到,就会向外查找，如果是在全局作用域都没有找到，报错RefrenceError
+
+> 规范
+
+由于我们所有的全局变量都会绑定到我们的window上。如果不同的js文件，使用了相同的全局变量，冲突~>如何减少冲突？
+
+```javascript
+//唯一全局变量
+var App = {};
+
+//定义全局变量
+App.name = "apple";
+App.add = function(a,b){
+    return a + b;
+}
+```
+
+把自己的代码全部放入自己定义的唯一空间名字中，降低全局命名冲突的问题~
+
+> 局部作用域let
+
+ES6 let 关键字，解决局部作用域冲突问题！
+
+eg.
+
+```javascript
+function aaa(){
+    for(var i = 0;i<100；i++){
+        console.log(i)
+    }
+    console.log(i+1);//问题？i出了这个作用域还可以使用
+}
+```
+
+```javascript
+function aaa(){
+    for(let i = 0;i<100；i++){
+        console.log(i)
+    }
+    console.log(i+1);//报错：Uncaught ReferenceError:i is not defined
+}
+```
+
+> 常量const
+
+在ES6引入了常量关键字const
+
+```javascript
+const PI = '3.14' //只读变量
+consloe.log(PI);
+PI = '123';//TypeError:Assignment to constant variable.
+consloe.log(PI);
+```
+
+## 12.方式
+
+> 定义方法
+
+方法就是把函数放在对象的里面，对象只有两个东西：属性和方法
+
+```javascript
+var jimmy ={
+    name:'阿瑾',
+    birth:2000,
+    //方法
+    age:function(){
+        //今年- 出生的年
+        var now = new Date().getFullYear();
+        return now-this.birth;
+    }
+}
+//属性
+jimmy.name
+//方法，一定要带 ()
+jimmy.age()
+```
+
+  this.代表什么？拆开上面的代码看看~
+
+```javascript
+function getAge(){
+    //今年 - 出生的年
+    var now = new Date().getFullYear();
+    return now-this.birth;
+}
+var jimmy ={
+    name:'阿瑾',
+    birth:2000,
+    age:getAge
+}
+//kuangshen.age() ok
+//getAge() NaN window
+```
+
+this是无法指向的，是默认指向调用它的那个对象；
+
+> apply
+
+在js中可以控制this的指向！
+
+```javascript
+function getAge(){
+    //今年 - 出生的年
+    var now = new Date().getFullYear();
+    return now-this.birth;
+}
+
+var jimmy = {
+    name:'阿瑾'，
+    birth：2000，
+    age：getAge
+};
+
+//kuangshen.age()ok
+getAge.apply(jimmy,[]);//this,指向了 jimmy,参数为空
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
