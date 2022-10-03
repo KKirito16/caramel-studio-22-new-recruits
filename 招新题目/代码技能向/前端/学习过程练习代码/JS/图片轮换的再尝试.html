@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    //仍存在问题：触发imgPresentation有两个条件：1.每3秒触发一次 2.每点击触发一次
+    //但用户实际使用时可能出现刚点击切换后又因为到3秒立马又切换了的情况
+    function manual(){
+        var number=0;
+        number++;
+        return number;
+    }
+    function auto(){
+        var number=0;
+        number++;
+        return number;
+    }
+    var number=manual()+auto();
+    function imgPresentation(){
+        number=number%4+1;
+        var img =document.getElementById("img");
+        img.src="img/img"+number+".jpg";
+    }
+    //定义定时器
+    setInterval(auto,3000);
+    setInterval(imgPresentation,3000);
+</script>
+<body>
+    <img id="img" src="img/img1.jpg"alt=""width="50%" onclick="manual();imgPresentation()">
+</body>
+</html>
