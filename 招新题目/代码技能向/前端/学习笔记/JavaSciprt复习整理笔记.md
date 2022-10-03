@@ -793,6 +793,8 @@ getAge.apply(jimmy,[]);//this,指向了 jimmy,参数为空
 
 1.
 
+2.
+
 
 
 
