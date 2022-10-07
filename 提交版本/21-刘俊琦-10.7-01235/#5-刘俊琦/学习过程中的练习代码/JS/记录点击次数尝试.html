@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记录点击次数</title>
+</head>
+<script>
+  var number =1;
+  function myFunction(){
+    number++;
+    if (number>4){
+        number=1;
+    }
+    return number;
+  }
+  number=myFunction();
+  function imgPresentation(){
+      var img =document.getElementById("img");
+      img.src="img/img"+number+".jpg";
+  }
+</script>
+<body>
+<p>单击按钮触发函数。</p>
+<img src="img/img1.jpg" id="img" onclick="myFunction();imgPresentation()" width="50%" height="50%">
+<p id="demo"></p>
+</body>
+</html>
