@@ -16,8 +16,8 @@
 
 任务二（1）
 
-<img src="1.png" alt="1" style="zoom:50%;" />
+![1](img/1.png)
 
 任务二（2）
 
-<img src="2.png" alt="2" style="zoom:50%;" />
+![2](img/2.png)
